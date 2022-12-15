@@ -1,4 +1,4 @@
-package literality.content;
+package interal.content;
 
 import arc.graphics.*;
 import arc.util.*;
@@ -6,7 +6,7 @@ import mindustry.content.*;
 import mindustry.graphics.g3d.*;
 import mindustry.type.*;
 
-public class LiteralPlanets{
+public class InteralPlanets{
     public static Planet
     feistade;
 
