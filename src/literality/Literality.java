@@ -8,9 +8,9 @@ import mindustry.game.EventType.*;
 import mindustry.gen.*;
 import mindustry.mod.*;
 
-public class ExampleJavaMod extends Mod{
+public class Literality extends Mod{
 
-    public ExampleJavaMod(){
+    public Literality(){
     
     }
 
