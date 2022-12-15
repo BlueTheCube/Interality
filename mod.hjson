@@ -1,9 +1,9 @@
-displayName: "Literality"
-name: "literality"
+displayName: "Interality"
+name: "interality"
 author: "Calreiboz"
-main: "literality.Literality"
-description: "A literal Mindustry mod."
-version: 0.0.0
+main: "interal.Interality"
+description: "A Mindustry mod."
+version: 0.0.01
 minGameVersion: 140
 java: true
-repo: "Calreiboz/Literality"
+repo: "Calreiboz/Interality"
