@@ -8,7 +8,7 @@ import mindustry.type.*;
 
 public class LiteralPlanets{
     public static Planet
-    feistade
+    feistade;
 
     public static void load(){
         feistade = new Planet("feistade", Planets.sun, 4f, 6){{
