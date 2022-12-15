@@ -14,7 +14,7 @@ public class LiteralPlanets{
         feistade = new Planet("feistade", Planets.sun, 4f, 6){{
             bloom = true;
             accessible = false;
-            orbitRadius = 20f;
+            orbitRadius = 200f;
 
             meshLoader = () -> new SunMesh(
                 this, 4,
