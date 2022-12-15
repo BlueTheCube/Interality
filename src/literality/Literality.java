@@ -2,6 +2,7 @@ package literality;
 
 import arc.*;
 import arc.util.*;
+import literality.content.*;
 import mindustry.*;
 import mindustry.content.*;
 import mindustry.game.EventType.*;
@@ -17,6 +18,7 @@ public class Literality extends Mod{
     @Override
     public void loadContent(){
         Log.info("Loading literal content.");
+        LiteralPlanets.load();
     }
 
 }
