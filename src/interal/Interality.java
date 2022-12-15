@@ -2,7 +2,7 @@ package interal;
 
 import arc.*;
 import arc.util.*;
-import literality.content.*;
+import interal.content.*;
 import mindustry.*;
 import mindustry.content.*;
 import mindustry.game.EventType.*;
@@ -17,7 +17,6 @@ public class Interality extends Mod{
 
     @Override
     public void loadContent(){
-        Log.info("Loading literal content.");
         InteralPlanets.load();
     }
 
