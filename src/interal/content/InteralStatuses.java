@@ -6,7 +6,7 @@ import mindustry.content.*;
 public class InteralStatuses {
 	public static StatusEffect speedie;
 
-	public void load() {
+	public static void load() {
 		speedie = new StatusEffect("speedie") {{
 			speedMultiplier = 2.5f;
             reloadMultiplier = 1.5f;
