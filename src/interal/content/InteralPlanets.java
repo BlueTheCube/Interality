@@ -10,7 +10,7 @@ import mindustry.game.*;
 
 public class InteralPlanets{
     public static Planet
-    feistade, intra;
+    feistade, intra, ranola;
 
     public static void load(){
         feistade = new Planet("feistade", Planets.sun, 5f, 6){{
@@ -41,7 +41,7 @@ public class InteralPlanets{
             sectorSeed = 7;
             allowWaves = true;
             allowWaveSimulation = true;
-            allowSectorInvasion = true;
+            allowSectorInvasion = false;
             allowLaunchSchematics = true;
             enemyCoreSpawnReplace = true;
             allowLaunchLoadout = true;
@@ -52,12 +52,23 @@ public class InteralPlanets{
                 r.showSpawns = true;
             };
             iconColor = Color.valueOf("3789c4");
-            atmosphereColor = Color.valueOf("8ae4ff");
+            atmosphereColor = Color.valueOf("4d9dff");
             atmosphereRadIn = 0.02f;
             atmosphereRadOut = 0.3f;
-            startSector = 7;
+            startSector = 13;
             alwaysUnlocked = true;
             landCloudColor = Color.valueOf("8ae4ff");
+        }};
+        ranola = new Planet("ranola", intra, 0.5f, 2){{
+            generator = new TantrosPlanetGenerator();
+            meshLoader = () -> new HexMesh(this, 6);
+            solarSystem = feistade;
+            atmosphereColor = Color.valueOf("4d9dff");
+            atmosphereRadIn = 0.02f;
+            atmosphereRadOut = 0.3f;
+            startSector = 17;
+            alwaysUnlocked = false;
+            landCloudColor = Color.valueOf("4d9dff");
         }};
     }
 }
