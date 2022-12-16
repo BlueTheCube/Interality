@@ -18,6 +18,7 @@ public class Interality extends Mod{
     @Override
     public void loadContent(){
         InteralPlanets.load();
+        InteralStatuses.load();
     }
 
 }
