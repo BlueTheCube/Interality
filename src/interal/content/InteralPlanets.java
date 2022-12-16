@@ -59,7 +59,7 @@ public class InteralPlanets{
             alwaysUnlocked = true;
             landCloudColor = Color.valueOf("8ae4ff");
         }};
-        ranola = new Planet("ranola", intra, 0.5f, 2){{
+        ranola = new Planet("ranola", feistade, 1f, 4){{
             generator = new TantrosPlanetGenerator();
             meshLoader = () -> new HexMesh(this, 6);
             solarSystem = feistade;
