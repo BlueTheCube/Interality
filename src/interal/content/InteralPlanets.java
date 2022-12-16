@@ -16,7 +16,6 @@ public class InteralPlanets{
         feistade = new Planet("feistade", Planets.sun, 5f, 6){{
             bloom = true;
             accessible = false;
-            solarSystem = null;
             orbitRadius = 420f;
             meshLoader = () -> new SunMesh(
                 this, 4,
