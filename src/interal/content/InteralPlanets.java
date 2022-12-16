@@ -33,7 +33,7 @@ public class InteralPlanets{
         intra = new Planet("intra", feistade, 1f, 2){{
             generator = new SerpuloPlanetGenerator();
             meshLoader = () -> new HexMesh(this, 6);
-            solarSystem = "feistade";
+            solarSystem = feistade;
             cloudMeshLoader = () -> new MultiMesh(
                 new HexSkyMesh(this, 11, 0.15f, 0.13f, 5, Color.valueOf("8ae4ff").a(0.75f), 2, 0.45f, 0.9f, 0.38f)
             );
