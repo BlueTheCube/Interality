@@ -13,7 +13,7 @@ public class InteralPlanets{
     feistade, intra;
 
     public static void load(){
-        feistade = new Planet("feistade", Planets.sun, 5f, 6){{
+        feistade = new Planet("feistade", null, 5f, 6){{
             bloom = true;
             accessible = false;
             orbitRadius = 420f;
