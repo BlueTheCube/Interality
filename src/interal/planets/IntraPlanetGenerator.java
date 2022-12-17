@@ -29,14 +29,14 @@ public class IntraPlanetGenerator extends PlanetGenerator{
 
     Block[][] arr =
     {
-    {Blocks.ice, Blocks.ice, Blocks.ice, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.stone, Blocks.stone, Blocks.stone, Blocks.stone, Blocks.snow, Blocks.stone, Blocks.stone},
-    {Blocks.ice, Blocks.ice, Blocks.ice, Blocks.snow, Blocks.stone, Blocks.stone, Blocks.stone, Blocks.stone, Blocks.stone, Blocks.snow, Blocks.stone, Blocks.stone, Blocks.stone},
-    {Blocks.ice, Blocks.ice, Blocks.ice, Blocks.stone, Blocks.snow, Blocks.stone, Blocks.stone, Blocks.stone, Blocks.stone, Blocks.snow, Blocks.stone, Blocks.stone, Blocks.stone},
-    {Blocks.ice, Blocks.ice, Blocks.ice, Blocks.ice, Blocks.ice, Blocks.ice, Blocks.stone, Blocks.stone, Blocks.stone, Blocks.stone, Blocks.snow, Blocks.iceSnow, Blocks.ice},
-    {Blocks.ice, Blocks.ice, Blocks.ice, Blocks.stone, Blocks.snow, Blocks.stone, Blocks.stone, Blocks.stone, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.ice},
-    {Blocks.ice, Blocks.ice, Blocks.ice, Blocks.stone, Blocks.stone, Blocks.stone, Blocks.ice, Blocks.iceSnow, Blocks.snow, Blocks.snow, Blocks.ice, Blocks.snow, Blocks.ice},
-    {Blocks.ice, Blocks.ice, Blocks.ice, Blocks.stone, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.stone, Blocks.stone, Blocks.stone, Blocks.ice, Blocks.snow, Blocks.ice},
-    {Blocks.ice, Blocks.ice, Blocks.ice, Blocks.snow, Blocks.stone, Blocks.snow, Blocks.stone, Blocks.ice, Blocks.stone, Blocks.ice, Blocks.snow, Blocks.ice, Blocks.ice}
+    {Blocks.ice, Blocks.ice, Blocks.ice, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.snow},
+    {Blocks.ice, Blocks.ice, Blocks.ice, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.snow},
+    {Blocks.ice, Blocks.ice, Blocks.ice, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.snow},
+    {Blocks.ice, Blocks.ice, Blocks.ice, Blocks.ice, Blocks.ice, Blocks.ice, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.iceSnow, Blocks.ice},
+    {Blocks.ice, Blocks.ice, Blocks.ice, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.ice},
+    {Blocks.ice, Blocks.ice, Blocks.ice, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.ice, Blocks.iceSnow, Blocks.snow, Blocks.snow, Blocks.ice, Blocks.snow, Blocks.ice},
+    {Blocks.ice, Blocks.ice, Blocks.ice, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.ice, Blocks.snow, Blocks.ice},
+    {Blocks.ice, Blocks.ice, Blocks.ice, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.ice, Blocks.snow, Blocks.ice, Blocks.snow, Blocks.ice, Blocks.ice}
     };
 
 
@@ -111,7 +111,7 @@ public class IntraPlanetGenerator extends PlanetGenerator{
 
             void join(int x1, int y1, int x2, int y2){
                 float nscl = rand.random(100f, 140f) * 6f;
-                int stroke = rand.random(3, 9);
+                int stroke = rand.random(5, 12);
                 brush(pathfind(x1, y1, x2, y2, tile -> (tile.solid() ? 50f : 0f) + noise(tile.x, tile.y, 2, 0.4f, 1f / nscl) * 500, Astar.manhattan), stroke);
             }
 
