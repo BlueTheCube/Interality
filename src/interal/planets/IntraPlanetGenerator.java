@@ -73,6 +73,7 @@ public class IntraPlanetGenerator extends PlanetGenerator{
             tile.block = Blocks.air;
         }
     }
+    
     Block getBlock(Vec3 position){
         float height = rawHeight(position);
         Tmp.v31.set(position);
@@ -83,6 +84,7 @@ public class IntraPlanetGenerator extends PlanetGenerator{
         temp = Mathf.lerp(temp, tnoise, 0.5f);
         height *= 1.2f;
         height = Mathf.clamp(height);
+        return res;
     }
 
 
