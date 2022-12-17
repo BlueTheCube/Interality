@@ -70,26 +70,6 @@ public class IntraPlanetGenerator extends PlanetGenerator{
         }
     }
 
-    Block getBlock(Vec3 position){
-        float height = rawHeight(position);
-        Tmp.v31.set(position);
-        position = Tmp.v33.set(position).scl(scl);
-        float rad = scl;
-        float temp = Mathf.clamp(Math.abs(position.y * 2f) / (rad));
-        float tnoise = Simplex.noise3d(seed, 7, 0.56, 1f/3f, position.x, position.y + 999f, position.z);
-        temp = Mathf.lerp(temp, tnoise, 0.5f);
-        height *= 1.2f;
-        height = Mathf.clamp(height);
-
-        float tar = Simplex.noise3d(seed, 4, 0.55f, 1f/2f, position.x, position.y + 999f, position.z) * 0.3f + Tmp.v31.dst(0, 0, 1f) * 0.2f;
-
-        Block res = arr[Mathf.clamp((int)(temp * arr.length), 0, arr[0].length - 1)][Mathf.clamp((int)(height * arr[0].length), 0, arr[0].length - 1)];
-        if(tar > 0.5f){
-            return tars.get(res, res);
-        }else{
-            return res;
-        }
-    }
 
     @Override
     protected float noise(float x, float y, double octaves, double falloff, double scl, double mag){
@@ -136,23 +116,6 @@ public class IntraPlanetGenerator extends PlanetGenerator{
 
                 join(x, y, mx, my);
                 join(mx, my, to.x, to.y);
-            }
-
-
-            void connectLiquid(Room to){
-                if(to == this) return;
-
-                Vec2 midpoint = Tmp.v1.set(to.x, to.y).add(x, y).scl(0.5f);
-                rand.nextFloat();
-
-                //add randomized offset to avoid straight lines
-                midpoint.add(Tmp.v2.setToRandomDirection(rand).scl(Tmp.v1.dst(x, y)));
-                midpoint.sub(width/2f, height/2f).limit(width / 2f / Mathf.sqrt3).add(width/2f, height/2f);
-
-                int mx = (int)midpoint.x, my = (int)midpoint.y;
-
-                joinLiquid(x, y, mx, my);
-                joinLiquid(mx, my, to.x, to.y);
             }
         }
 
@@ -377,20 +340,6 @@ public class IntraPlanetGenerator extends PlanetGenerator{
                 }
                 if(any && ((block == Blocks.snowWall || block == Blocks.iceWall) || (all && block == Blocks.air && floor == Blocks.snow && rand.chance(0.03)))){
                     block = rand.chance(0.5) ? Blocks.whiteTree : Blocks.whiteTreeDead;
-                }
-            }
-
-            //random stuff
-            dec: {
-                for(int i = 0; i < 4; i++){
-                    Tile near = world.tile(x + Geometry.d4[i].x, y + Geometry.d4[i].y);
-                    if(near != null && near.block() != Blocks.air){
-                        break dec;
-                    }
-                }
-
-                if(rand.chance(0.01) && floor.asFloor().hasSurface() && block == Blocks.air){
-                    block = dec.get(floor, floor.asFloor().decoration);
                 }
             }
         });
