@@ -11,7 +11,7 @@ import interal.planets.*;
 
 public class InteralPlanets{
     public static Planet
-    feistade, intra, ranola;
+    feistade, ranola, atras, intra, gustav;
 
     public static void load(){
         feistade = new Planet("feistade", Planets.sun, 5f, 6){{
@@ -30,7 +30,29 @@ public class InteralPlanets{
                 Color.valueOf("99daff")
             );
         }};
-        intra = new Planet("intra", feistade, 1f, 2){{
+        ranola = new Planet("ranola", feistade, 1f, 2){{
+            generator = new TantrosPlanetGenerator(); //placeholder
+            meshLoader = () -> new HexMesh(this, 6);
+            solarSystem = feistade;
+            atmosphereColor = Color.valueOf("4d9dff");
+            atmosphereRadIn = 0.02f;
+            atmosphereRadOut = 0.3f;
+            startSector = 17;
+            alwaysUnlocked = false;
+            landCloudColor = Color.valueOf("4d9dff");
+        }};
+        atras = new Planet("atras", feistade, 1f, 3){{
+            generator = new SerpuloPlanetGenerator(); //placeholder
+            meshLoader = () -> new HexMesh(this, 6);
+            solarSystem = feistade;
+            atmosphereColor = Color.valueOf("4d9dff");
+            atmosphereRadIn = 0.02f;
+            atmosphereRadOut = 0.3f;
+            startSector = 17;
+            alwaysUnlocked = false;
+            landCloudColor = Color.valueOf("4d9dff");
+        }};
+        intra = new Planet("intra", feistade, 1f, 5){{
             generator = new IntraPlanetGenerator();
             meshLoader = () -> new HexMesh(this, 6);
             solarSystem = feistade;
@@ -59,17 +81,6 @@ public class InteralPlanets{
             startSector = 13;
             alwaysUnlocked = true;
             landCloudColor = Color.valueOf("8ae4ff");
-        }};
-        ranola = new Planet("ranola", feistade, 1f, 4){{
-            generator = new TantrosPlanetGenerator(); //placeholder
-            meshLoader = () -> new HexMesh(this, 6);
-            solarSystem = feistade;
-            atmosphereColor = Color.valueOf("4d9dff");
-            atmosphereRadIn = 0.02f;
-            atmosphereRadOut = 0.3f;
-            startSector = 17;
-            alwaysUnlocked = false;
-            landCloudColor = Color.valueOf("4d9dff");
         }};
     }
 }
