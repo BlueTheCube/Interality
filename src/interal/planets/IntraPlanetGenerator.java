@@ -69,6 +69,17 @@ public class IntraPlanetGenerator extends PlanetGenerator{
             tile.block = Blocks.air;
         }
     }
+    Block getBlock(Vec3 position){
+        float height = rawHeight(position);
+        Tmp.v31.set(position);
+        position = Tmp.v33.set(position).scl(scl);
+        float rad = scl;
+        float temp = Mathf.clamp(Math.abs(position.y * 2f) / (rad));
+        float tnoise = Simplex.noise3d(seed, 7, 0.56, 1f/3f, position.x, position.y + 999f, position.z);
+        temp = Mathf.lerp(temp, tnoise, 0.5f);
+        height *= 1.2f;
+        height = Mathf.clamp(height);
+    }
 
 
     @Override
@@ -208,14 +219,6 @@ public class IntraPlanetGenerator extends PlanetGenerator{
             }
         }
 
-        boolean naval = (float)waters / total >= 0.19f;
-
-        //create water pathway if the map is flooded
-        if(naval){
-            for(Room room : enemies){
-                room.connectLiquid(spawn);
-            }
-        }
 
         distort(10f, 6f);
 
