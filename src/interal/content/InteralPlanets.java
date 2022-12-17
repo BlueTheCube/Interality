@@ -7,6 +7,7 @@ import mindustry.graphics.g3d.*;
 import mindustry.type.*;
 import mindustry.maps.planet.*;
 import mindustry.game.*;
+import interal.planets.*;
 
 public class InteralPlanets{
     public static Planet
@@ -30,7 +31,7 @@ public class InteralPlanets{
             );
         }};
         intra = new Planet("intra", feistade, 1f, 2){{
-            generator = new SerpuloPlanetGenerator();
+            generator = new IntraPlanetGenerator();
             meshLoader = () -> new HexMesh(this, 6);
             solarSystem = feistade;
             cloudMeshLoader = () -> new MultiMesh(
@@ -60,7 +61,7 @@ public class InteralPlanets{
             landCloudColor = Color.valueOf("8ae4ff");
         }};
         ranola = new Planet("ranola", feistade, 1f, 4){{
-            generator = new TantrosPlanetGenerator();
+            generator = new TantrosPlanetGenerator(); //placeholder
             meshLoader = () -> new HexMesh(this, 6);
             solarSystem = feistade;
             atmosphereColor = Color.valueOf("4d9dff");
