@@ -58,7 +58,11 @@ public class IntraPlanetGenerator extends PlanetGenerator{
         return Math.max(height, water);
     }
 
-    
+    @Override
+    public Color getColor(Vec3 position){
+        Block block = getBlock(position);
+        return Tmp.c1.set(block.mapColor).a(1f - block.albedo);
+    }
 
     @Override
     public void genTile(Vec3 position, TileGen tile){
