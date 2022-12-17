@@ -29,14 +29,14 @@ public class IntraPlanetGenerator extends PlanetGenerator{
 
     Block[][] arr =
     {
-    {Blocks.ice, Blocks.ice, Blocks.ice, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.sand, Blocks.sand, Blocks.sand, Blocks.sand, Blocks.snow, Blocks.stone, Blocks.stone},
-    {Blocks.ice, Blocks.ice, Blocks.ice, Blocks.snow, Blocks.sand, Blocks.sand, Blocks.sand, Blocks.sand, Blocks.sand, Blocks.snow, Blocks.stone, Blocks.stone, Blocks.stone},
-    {Blocks.ice, Blocks.ice, Blocks.ice, Blocks.sand, Blocks.salt, Blocks.sand, Blocks.sand, Blocks.sand, Blocks.sand, Blocks.snow, Blocks.stone, Blocks.stone, Blocks.stone},
-    {Blocks.ice, Blocks.ice, Blocks.ice, Blocks.ice, Blocks.ice, Blocks.ice, Blocks.sand, Blocks.stone, Blocks.stone, Blocks.stone, Blocks.snow, Blocks.iceSnow, Blocks.ice},
-    {Blocks.ice, Blocks.ice, Blocks.ice, Blocks.sand, Blocks.salt, Blocks.sand, Blocks.sand, Blocks.basalt, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.ice},
-    {Blocks.ice, Blocks.ice, Blocks.ice, Blocks.sand, Blocks.sand, Blocks.sand, Blocks.ice, Blocks.iceSnow, Blocks.snow, Blocks.snow, Blocks.ice, Blocks.snow, Blocks.ice},
-    {Blocks.ice, Blocks.ice, Blocks.ice, Blocks.sand, Blocks.moss, Blocks.moss, Blocks.snow, Blocks.basalt, Blocks.basalt, Blocks.basalt, Blocks.ice, Blocks.snow, Blocks.ice},
-    {Blocks.ice, Blocks.ice, Blocks.ice, Blocks.snow, Blocks.basalt, Blocks.moss, Blocks.basalt, Blocks.hotrock, Blocks.basalt, Blocks.ice, Blocks.snow, Blocks.ice, Blocks.ice}
+    {Blocks.ice, Blocks.ice, Blocks.ice, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.stone, Blocks.stone, Blocks.stone, Blocks.stone, Blocks.snow, Blocks.stone, Blocks.stone},
+    {Blocks.ice, Blocks.ice, Blocks.ice, Blocks.snow, Blocks.stone, Blocks.stone, Blocks.stone, Blocks.stone, Blocks.stone, Blocks.snow, Blocks.stone, Blocks.stone, Blocks.stone},
+    {Blocks.ice, Blocks.ice, Blocks.ice, Blocks.stone, Blocks.snow, Blocks.stone, Blocks.stone, Blocks.stone, Blocks.stone, Blocks.snow, Blocks.stone, Blocks.stone, Blocks.stone},
+    {Blocks.ice, Blocks.ice, Blocks.ice, Blocks.ice, Blocks.ice, Blocks.ice, Blocks.stone, Blocks.stone, Blocks.stone, Blocks.stone, Blocks.snow, Blocks.iceSnow, Blocks.ice},
+    {Blocks.ice, Blocks.ice, Blocks.ice, Blocks.stone, Blocks.snow, Blocks.stone, Blocks.stone, Blocks.stone, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.ice},
+    {Blocks.ice, Blocks.ice, Blocks.ice, Blocks.stone, Blocks.stone, Blocks.stone, Blocks.ice, Blocks.iceSnow, Blocks.snow, Blocks.snow, Blocks.ice, Blocks.snow, Blocks.ice},
+    {Blocks.ice, Blocks.ice, Blocks.ice, Blocks.stone, Blocks.snow, Blocks.snow, Blocks.snow, Blocks.stone, Blocks.stone, Blocks.stone, Blocks.ice, Blocks.snow, Blocks.ice},
+    {Blocks.ice, Blocks.ice, Blocks.ice, Blocks.snow, Blocks.stone, Blocks.snow, Blocks.stone, Blocks.ice, Blocks.stone, Blocks.ice, Blocks.snow, Blocks.ice, Blocks.ice}
     };
 
 
@@ -284,50 +284,6 @@ public class IntraPlanetGenerator extends PlanetGenerator{
 
         tech();
 
-        pass((x, y) -> {
-            //random moss
-            if(floor == Blocks.sporeMoss){
-                if(Math.abs(0.5f - noise(x - 90, y, 4, 0.8, 65)) > 0.02){
-                    floor = Blocks.moss;
-                }
-            }
-
-            //hotrock tweaks
-            if(floor == Blocks.hotrock){
-                if(Math.abs(0.5f - noise(x - 90, y, 4, 0.8, 80)) > 0.035){
-                    floor = Blocks.basalt;
-                }else{
-                    ore = Blocks.air;
-                    boolean all = true;
-                    for(Point2 p : Geometry.d4){
-                        Tile other = tiles.get(x + p.x, y + p.y);
-                        if(other == null || (other.floor() != Blocks.hotrock && other.floor() != Blocks.magmarock)){
-                            all = false;
-                        }
-                    }
-                    if(all){
-                        floor = Blocks.magmarock;
-                    }
-                }
-            }
-
-            if(rand.chance(0.0075)){
-                //random spore trees
-                boolean any = false;
-                boolean all = true;
-                for(Point2 p : Geometry.d4){
-                    Tile other = tiles.get(x + p.x, y + p.y);
-                    if(other != null && other.block() == Blocks.air){
-                        any = true;
-                    }else{
-                        all = false;
-                    }
-                }
-                if(any && ((block == Blocks.snowWall || block == Blocks.iceWall) || (all && block == Blocks.air && floor == Blocks.snow && rand.chance(0.03)))){
-                    block = rand.chance(0.5) ? Blocks.whiteTree : Blocks.whiteTreeDead;
-                }
-            }
-        });
 
         float difficulty = sector.threat;
         ints.clear();
