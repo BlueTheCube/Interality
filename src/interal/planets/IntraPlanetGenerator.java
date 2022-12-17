@@ -222,31 +222,6 @@ public class IntraPlanetGenerator extends PlanetGenerator{
 
         distort(10f, 6f);
 
-        if(naval){
-            int deepRadius = 2;
-
-            //TODO code is very similar, but annoying to extract into a separate function
-            pass((x, y) -> {
-                if(floor.asFloor().isLiquid && !floor.asFloor().isDeep() && !floor.asFloor().shallow){
-
-                    for(int cx = -deepRadius; cx <= deepRadius; cx++){
-                        for(int cy = -deepRadius; cy <= deepRadius; cy++){
-                            if((cx) * (cx) + (cy) * (cy) <= deepRadius * deepRadius){
-                                int wx = cx + x, wy = cy + y;
-
-                                Tile tile = tiles.get(wx, wy);
-                                if(tile != null && (tile.floor().shallow || !tile.floor().isLiquid)){
-                                    //found something shallow, skip replacing anything
-                                    return;
-                                }
-                            }
-                        }
-                    }
-
-                    floor = floor == Blocks.water ? Blocks.deepwater : Blocks.taintedWater;
-                }
-            });
-        }
 
         Seq<Block> ores = Seq.with(Blocks.oreCopper, Blocks.oreLead);
         float poles = Math.abs(sector.tile.v.y);
@@ -455,7 +430,7 @@ public class IntraPlanetGenerator extends PlanetGenerator{
         state.rules.enemyCoreBuildRadius = 600f;
 
         //spawn air only when spawn is blocked
-        state.rules.spawns = Waves.generate(difficulty, new Rand(sector.id), state.rules.attackMode, state.rules.attackMode && spawner.countGroundSpawns() == 0, naval);
+        state.rules.spawns = Waves.generate(difficulty, new Rand(sector.id), state.rules.attackMode, state.rules.attackMode && spawner.countGroundSpawns() == 0, false);
     }
 
     @Override
