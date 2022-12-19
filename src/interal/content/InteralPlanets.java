@@ -11,7 +11,7 @@ import interal.planets.*;
 
 public class InteralPlanets{
     public static Planet
-    feistade, ranola, atras, intra, gustav;
+    feistade, ranola, atras, intra;
 
     public static void load(){
         feistade = new Planet("feistade", Planets.sun, 5f, 6){{
