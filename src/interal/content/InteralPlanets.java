@@ -22,12 +22,12 @@ public class InteralPlanets{
                 this, 4,
                 5, 0.3, 1.7, 1.2, 1,
                 1.1f,
-                Color.valueOf("d9f7ff"),
-                Color.valueOf("ccefff"),
-                Color.valueOf("bfebff"),
+                Color.valueOf("ebfcff"),
+                Color.valueOf("defaff"),
+                Color.valueOf("caf3fa"),
                 Color.valueOf("aee4fc"),
-                Color.valueOf("a2dbfc"),
-                Color.valueOf("99daff")
+                Color.valueOf("c4f6ff"),
+                Color.valueOf("b8f4ff")
             );
         }};
         ranola = new Planet("ranola", feistade, 1f, 2){{
